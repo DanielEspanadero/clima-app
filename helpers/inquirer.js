@@ -8,15 +8,15 @@ const preguntas = [
         message: '¿Qué desea hacer?',
         choices: [
             {
-                value: '1',
+                value: 1,
                 name: `${ '1.'.brightGreen } Buscar ciudad`
             },
             {
-                value: '2',
+                value: 2,
                 name: `${ '2.'.brightGreen } Historial`
             },
             {
-                value: '0',
+                value: 0,
                 name: `${ '0.'.brightGreen } Salir`
             }
         ]
@@ -55,7 +55,7 @@ const leerInput = async( message ) => {
     const question = [
         {
             type: 'input',
-            name: 'Hola',
+            name: 'Escribe una ciudad',
             message,
 
             validate( value ) {
