@@ -1,10 +1,10 @@
 const { leerInput,
-    inquirerMenu,
-    pausa
-} = require('./helpers/inquirer');
+        inquirerMenu,
+        pausa
+    } = require('./helpers/inquirer');
 
 const Busquedas = require('./models/busquedas')
-console.clear()
+
 
 const main = async () => {
 
@@ -17,7 +17,8 @@ const main = async () => {
         switch (opt) {
             case 1:
                 //Mostrar mensaje
-
+                const lugar = await leerInput('Ciudad: ');
+                console.log(lugar);
                 //Buscar los lugares
 
                 //Seleccionar el lugar
@@ -33,7 +34,7 @@ const main = async () => {
                 console.log('Tempreratura:', );
                 console.log('Mínima:', );
                 console.log('Máxima:', );
-                break
+                break;
         }
 
 

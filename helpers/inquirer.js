@@ -55,7 +55,7 @@ const leerInput = async( message ) => {
     const question = [
         {
             type: 'input',
-            name: 'Escribe una ciudad',
+            name: 'opt',
             message,
 
             validate( value ) {
