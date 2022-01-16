@@ -4,25 +4,38 @@ class Busquedas {
 
     historial = ['Tegucigalpa', 'Madrid', 'San José'];
 
-    constructor(){
+    constructor() {
         //TODO: Leer DB si existe.
     };
 
-    async ciudad( lugar = '' ){
+    get paramsMapbox() {
+        return {
+                'access_token': 'pk.eyJ1IjoiaXJvbmRpZiIsImEiOiJja3lnamRoeDgxdGZpMnBwYjBxcGNvaTd1In0.nftey53RLK0fkcmU_Kg8Bg',
+                'limit': 5,
+                'language': 'es'
+        }
+    };
 
-        // Petición HTTP
-        // console.log('Ciudad', lugar);
-        console.clear()
+    async ciudad(lugar = '') {
 
-        const resp = await axios.get('https://reqres.in/api/users?page=2');
-        console.log(resp.data.per_page);
+        try {
+            // Petición HTTP
+            const instance = axios.create({
+                baseURL: `https://api.mapbox.com/geocoding/v5/mapbox.places/${lugar}.json`,
+                params: this.paramsMapbox
+            });
 
-        return []; //Retornar los lugares que coincidan con el lugar que escribió la persona.
+            const resp = await instance.get();
+            console.log(resp.data);
 
+            return []; //Retornar los lugares que coincidan con el lugar que escribió la persona.
+
+        } catch (error) {
+            return [];
+        }
     }
 
 }
-
 
 
 module.exports = Busquedas;
